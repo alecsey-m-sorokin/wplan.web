@@ -1,0 +1,6 @@
+    {
+      "browser": "firefox",
+      "wait_time": 10,
+      "chrome_driver_path": "C:/drivers/chromedriver.exe",
+      "ff_driver_path": "C:/drivers/geckodriver32.exe"
+    }
