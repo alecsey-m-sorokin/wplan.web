@@ -42,7 +42,7 @@ class TestWPlanLoginRootUser(unittest.TestCase):
         wPlanLogin.press_reddy_id_cancel_button()
         wPlanLogin.press_wplan_top_exit_button()
         wPlanLogin.press_wplan_logout_button()
-        time.sleep(2)
+        time.sleep(1)
 
 # browser = webdriver.Firefox(executable_path=FIREFOX_PATH_64)
 # browser.get('https://www.google.com')
