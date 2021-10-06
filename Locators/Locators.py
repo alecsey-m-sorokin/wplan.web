@@ -5,7 +5,7 @@ class Locators():
     """ MAIN PAGE """
     Project_mainPage = ''
 
-class LOGINPage(Locators):
+class WPlanLoginPage(Locators):
     def __init__(self, driver):
         self.driver = driver
 
@@ -18,7 +18,7 @@ class LOGINPage(Locators):
     WPlan_Reddy_ID_cancel_button = '//*[@class="ant-btn"]'
     WPlan_Reddy_ID_submit_button = '//*[@class="ant-btn ant-btn-primary"]'
 
-class LOGOUTPage(Locators):
+class WPlan_LogoutPage(Locators):
     def __init__(self, driver):
         self.driver = driver
 
@@ -43,7 +43,7 @@ class REGISTRATIONPage(Locators):
     Project_input_field_phone_code = '//div[@id="__next"]//div[@class="full-height"]//div[@class="style_authorization__ZsrCS container"]//div[@class="style_sms-code__3udhR style_authorization-box__sms-code__3ixTs"]//div[@class="style_sms-code__item__249Nd style_input__3umsS "]//input[@id="sms-code"]'
     '//div[@id="__next"]//input[@id="sms-code"]'
     Project_input_field_email = ''
-    Project_input_field_phone= '//input[@type="tel" and @name="phone"]'
+    Project_input_field_phone = '//input[@type="tel" and @name="phone"]'
     Project_input_field_password = '//input[@name="password"]'
     Project_button_REGISTRATION_finish = '//button[@type="submit"]'
 

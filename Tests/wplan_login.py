@@ -4,7 +4,8 @@ import unittest
 import pytest
 from selenium import webdriver
 from conftest import FIREFOX_PATH_64
-from Pages.WPlan_loginPage import LOGIN
+from conftest import StandSettings
+from Pages.WPlan_loginPage import WPlanLogin
 
 
 @pytest.fixture(scope='class')
@@ -14,7 +15,7 @@ def go_to_wplan_page(driver, request):
 
 
 @pytest.mark.usefixtures('go_to_wplan_page')
-class TestPython(unittest.TestCase):
+class TestWPlanLoginRootUser(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -32,15 +33,15 @@ class TestPython(unittest.TestCase):
 
     def test_wplan_login(self):
         driver = self.driver
-        LG = LOGIN(driver)
+        wPlanLogin = WPlanLogin(driver)
         # self.driver.set_window_size(1376, 895)
-        LG.enter_login('test_reddy_root')
-        LG.enter_password('11111111')
-        LG.press_ad_check_button()
-        LG.press_enter_button()
-        LG.press_reddy_id_cancel_button()
-        LG.press_wplan_top_exit_button()
-        LG.press_wplan_logout_button()
+        wPlanLogin.enter_login(StandSettings.root_reddy_user)
+        wPlanLogin.enter_password(StandSettings.root_reddy_user_password)
+        wPlanLogin.press_ad_check_button()
+        wPlanLogin.press_enter_button()
+        wPlanLogin.press_reddy_id_cancel_button()
+        wPlanLogin.press_wplan_top_exit_button()
+        wPlanLogin.press_wplan_logout_button()
         time.sleep(2)
 
 # browser = webdriver.Firefox(executable_path=FIREFOX_PATH_64)

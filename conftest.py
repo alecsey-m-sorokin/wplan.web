@@ -18,10 +18,12 @@ DEFAULT_WAIT_TIME = 10
 SUPPORTED_BROWSERS = ['chrome', 'firefox']
 
 class StandSettings:
-    test_stand = 'front-test.kube-main.iu.ru/'
+    test_stand = 'https://wplan.zhdun.space/'
     prod_stand = 'https://front-test.kube-main.iu.ru/'
-    usable_stand = prod_stand
-    a_sorokin = "https://admin:zRD04wX6NuxVEKQS9Rpt@{}".format(test_stand)
+    usable_stand = test_stand
+    # test_reddy_root = "https://test_reddy_root:11111111@{}".format(test_stand)
+    root_reddy_user = 'test_reddy_root'
+    root_reddy_user_password = '11111111'
 
 
 @pytest.fixture(scope='session')
