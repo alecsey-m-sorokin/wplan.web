@@ -23,7 +23,14 @@ class StandSettings:
     usable_stand = test_stand
     # test_reddy_root = "https://test_reddy_root:11111111@{}".format(test_stand)
     root_reddy_user = 'test_reddy_root'
+    manager_reddy_user = 'test_reddy_manager'
+    lead_reddy_user = 'test_reddy_lead'
+    executor_reddy_user = 'test_reddy_lead'
     root_reddy_user_password = '11111111'
+    manager_reddy_user_password = '11111111'
+    lead_reddy_user_password = '11111111'
+    executor_reddy_user_password = '11111111'
+    WPlan_test_group = 'WPlan_test_group'
 
 
 @pytest.fixture(scope='session')
