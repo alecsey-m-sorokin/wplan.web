@@ -1,9 +1,18 @@
 import time
 
 
-class Locators():
+class Locators:
     """ MAIN PAGE """
     Project_mainPage = ''
+    WPlan_Reports = 'Отчеты'
+    WPlan_Workers = 'Сотрудники'
+    WPlan_Groups = ''
+    WPlan_Schedules = ''
+    WPlan_Personal_Schedules = ''
+    WPlan_Missed = ''
+    WPlan_Offices = ''
+    WPlan_History = ''
+    WPlan_Documentation = ''
 
 class WPlanLoginPage(Locators):
     def __init__(self, driver):
@@ -32,6 +41,49 @@ class WPlan_LogoutPage(Locators):
         # ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath(self.IU_button_LOGOUT)).perform()
         time.sleep(1)
         self.driver.find_element_by_link_text(self.Project_logout_button).click()
+
+class WPlan_WorkerPage(Locators):
+    """ WORKER """
+    WPlan_Add_Worker = '//*[@id="root"]/div/section/section/main/div[2]/div/div/div[1]/button/span[2]'
+
+class WPlan_WorkerRegistrationPage(Locators):
+    """ REGISTRATION new worker """
+    AD_switch_button0 = '//div[@class="FormItemIfADSC-sc-17npaor-1 ikICGY"]//div[@class="ant-switch-handle"]'
+    AD_switch_button = '//div[@class="FormItemIfADSC-sc-17npaor-1 ikICGY"]//button[@type="button" and @aria-checked ="true"]'
+    WPlan_switch_button = '//div[@class="FormItemIfADSC-sc-17npaor-1 ikICGY"]//button[@type="button" and @aria-checked ="false"]'
+    Worker_AD_Login = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="cdcaf970ea8405197f261f9c55def47b"]'
+    Worker_WPlan_Login = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="ad08de129f8fc04b1765b08450bf3b56"]'
+    Worker_WPlan_Password = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="58d90d03dfa7cbc71d2f6b3f4d5dc78e"]'
+    Worker_WPlan_Timex_Select = '//div[@class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-24 ant-col-md-16 ant-col-lg-16"]//span[@class="ant-select-selection-search"]//*[@id = "9a9b64f5c5c36ef3974f69c294d13e97"]'
+    Worker_WPlan_Timex_Id = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="3bee3e156d0ace6db096f503b27c12ed"]'
+    Worker_WPlan_Select_Date = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="dff618ee3ff92d1fa9984129d7e2449b"]'
+    Worker_WPlan_Name = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="01d251091776b0b0119e987159930c5b"]'
+    Worker_WPlan_Family = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="bad80054eddf427b6e2adbfc7f4f7b9a"]'
+    Worker_WPlan_MidName = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="353ac266bcc21b2d026bb71bfeaefde4"]'
+    Worker_WPlan_Reddy_Id = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="44744aae4f39b3cbf59e965b438e7d76"]'
+    Worker_WPlan_Office = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//div[@class="ant-select-selector"]//*[@id="5e58afebf604780a9fc25c82b5ded909"]'
+    Worker_WPlan_Office_BY1 = '//div[@label="BY1"]'
+    # Worker_WPlan_Office_BY1 = '/html/body/div[3]/div/div[2]/div/div[2]/div[2]/div/div/form/div[3]/div[7]/div/div[2]/div/div/div/div[3]/div/div/div/div[2]/div[1]/div/div/div[1]'
+    Worker_WPlan_Role_Root = '//div[@label="Root"]'
+    Worker_WPlan_Role_Manager = '//div[@label="Менеджер" and @aria-selected="true"]'
+    Worker_WPlan_Role_Executor = '//div[@label="Исполнитель" and @aria-selected="true"]'
+    Worker_WPlan_Role_Lead = '//div[@label="Руководитель" and @aria-selected="true"]'
+    Worker_WPlan_Role = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//div[@class="ant-select-selector"]//*[@id="21e6806b7db4cae32ee9e82794aed1f0"]'
+    # Worker_WPlan_Role = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//span[@class="ant-select-selection-item" and @title = "Root"]'
+    Worker_WPlan_Group_Id = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//div[@class="ant-select-selector"]//*[@id="782f16b1199d46a5961ddee06b782d60"]'
+    Worker_WPlan_Schedule = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//div[@class="ant-select-selector"]//*[@id="bedcd65b962e3b97eb7e769cc31d39df"]'
+    Worker_WPlan_Schedule_1 = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="bedcd65b962e3b97eb7e769cc31d39df"]'
+    Worker_WPlan_Schedule_2 = '//span[@class="ant-select-selection-item" and @title ="Нед Без вых 8"]'
+    # Worker_WPlan_Schedule_1 = '//div[@label="Нед Без вых 8 and @aria-selected="false"]'
+    # '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="bedcd65b962e3b97eb7e769cc31d39df"]'
+    # Worker_Registration_Cancel_button = '//div[@class="ant-modal-footer"]//button[@type="button" and @class = "ant-btn" and contains(text(), "")]'
+    # Worker_Registration_Submit_button = '//div[@class="ant-modal-footer"]//button[@type="button" and @class = "ant-btn ant-btn-primary" and contains(text(), "")]'
+    Worker_Registration_Cancel_button = 'Отмена'
+    Worker_Registration_Submit_button = '/html/body/div[5]/div/div[2]/div/div[2]/div[3]/button[2]'
+    # Worker_Registration_Submit_button = '//button[@type="button" and @class="ant-btn ant-btn-primary"]'
+    # Worker_Registration_Submit_button = '//button[@type="button" and @class="ant-btn ant-btn-primary"]'
+
+# '//button[@type="button"]//*[contains(@span, "Добавить сотрудника")]'
 
 class REGISTRATIONPage(Locators):
     """ REGISTRATION """

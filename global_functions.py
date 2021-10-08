@@ -65,6 +65,25 @@ def user_password(number, length):
             password += random.choice(chars)
         return password
 
+def user_login(number, length):
+    import random
+    for n in range(number):
+        login = ''
+        for i in range(length):
+            login += random.choice(chars_username)
+        return login
+
+def random_string(length):
+    # choose from all lowercase letter
+    letters = string.ascii_lowercase
+    result_str = ''.join(random.choice(letters) for i in range(length))
+    return result_str
+
+def random_number(length):
+    # choose from all numbers
+    result_str = ''.join(random.choice(chars_phone_number) for i in range(length))
+    return result_str
+
 def user_phone(number, length):
     import random
     for n in range(number):
