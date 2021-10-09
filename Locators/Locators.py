@@ -92,6 +92,22 @@ class WPlan_WorkerRegistrationPage(Locators):
     Worker_Registration_Cancel_button = '//button[@type="button" and contains(span, "Отмена")]'
     Worker_Registration_Submit_button = '//button[@type="button" and contains(span, "Добавить сотрудника")]'
 
+class WPlan_WorkerPermissionsPage(Locators):
+    """ OFFICE """
+    Add_Worker_All_Offices_Groups0 = '//*[@id="753cd56cf78d66147b1cf76c30226c4f"]/div'
+    Add_Worker_All_Offices_Groups = '//*[@id="753cd56cf78d66147b1cf76c30226c4f"]'
+    BY1 = '//*[@id="rc-tabs-0-panel-offices"]/div/div/div/div/div/div[1]/div[2]/ul/li[1]/label/span/input'
+    BY2 = '//*[@id="rc-tabs-0-panel-offices"]/div/div/div/div/div/div[1]/div[2]/ul/li[2]/label/span/input'
+    BY3 = '//*[@id="rc-tabs-0-panel-offices"]/div/div/div/div/div/div[1]/div[2]/ul/li[3]/label/span/input'
+
+    """ GROUPS """
+    Add_Groups_to_Worker_checkbox = '//*[@id="rc-tabs-0-panel-groups"]/div/div/div/div/div/div[1]/div[2]/ul/li[1]/label/span/input'
+    Add_Groups_to_Worker_arrow = '//*[@id="rc-tabs-0-panel-offices"]/div/div/div/div/div/div[2]/button[1]/span/svg'
+    Remove_Groups_from_Worker_checkbox = '//*[@id="rc-tabs-0-panel-offices"]/div/div/div/div/div/div[3]/div[2]/ul/li/label/span/input'
+    Remove_Groups_from_Worker_arrow = '//*[@id="rc-tabs-0-panel-offices"]/div/div/div/div/div/div[2]/button[2]/span/svg'
+
+    Worker_Permissions_Submit_button = '//button[@type="button" and contains(span, "Сохранить изменения")]'
+
 class REGISTRATIONPage(Locators):
     """ REGISTRATION """
     Project_button_ENTER = 'Войти'  # '//div[@class="style_auth__links__eNZeW"]'

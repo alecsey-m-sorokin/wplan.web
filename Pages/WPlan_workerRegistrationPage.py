@@ -1,6 +1,6 @@
 from selenium.webdriver import ActionChains
 
-from Locators.Locators import WPlan_WorkerRegistrationPage, WPlan_LogoutPage
+from Locators.Locators import WPlan_WorkerRegistrationPage, WPlan_LogoutPage, WPlan_WorkerPermissionsPage
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -34,7 +34,7 @@ class WPlanWorkerRegistration:
         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Timex_Id).send_keys(timexId)
         time.sleep(1)
 
-    def enter_date(self, date):
+    def enter_date(self, workDate):
         """
             # driver.find_element_by_id('dff618ee3ff92d1fa9984129d7e2449b').send_keys(Keys.SHIFT + Keys.HOME + Keys.DELETE)
             # ActionChains(driver).move_to_element(driver.find_element_by_id('dff618ee3ff92d1fa9984129d7e2449b')).click().key_down(Keys.CONTROL).send_keys("a").send_keys(Keys.DELETE).perform()
@@ -42,7 +42,7 @@ class WPlanWorkerRegistration:
         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Select_Date).click()
         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Select_Date).send_keys(Keys.END)
         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Select_Date).send_keys('\b\b\b\b\b\b\b\b\b\b')
-        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Select_Date).send_keys(date)
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Select_Date).send_keys(workDate)
         # self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Select_Date).send_keys(Keys.ENTER)
         self.driver.find_element_by_css_selector(".ant-form").submit()
 
@@ -74,11 +74,56 @@ class WPlanWorkerRegistration:
         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Office_BY1).click()
         time.sleep(1)
 
-    def enter_worker_role(self, role):
+    def enter_worker_role_root(self, role):
         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).clear()
         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).send_keys(role)
         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role_Root).click()
         time.sleep(1)
+
+    def enter_worker_role_manager(self, role):
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).clear()
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).send_keys(role)
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role_Manager).click()
+        time.sleep(1)
+
+    def enter_worker_role_lead(self, role):
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).clear()
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).send_keys(role)
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role_Lead).click()
+        time.sleep(1)
+
+    def enter_worker_role_executor(self, role):
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).clear()
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).send_keys(role)
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role_Executor).click()
+        time.sleep(1)
+
+    # def enter_worker_role(self, role):
+    #     if role == 'Root':
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).clear()
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).send_keys(role)
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role_Root).click()
+    #         time.sleep(1)
+    #     elif role == 'Менеджер':
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).clear()
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).send_keys(role)
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role_Manager).click()
+    #         time.sleep(1)
+    #     elif role == 'Руководитель':
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).clear()
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).send_keys(role)
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role_Lead).click()
+    #         time.sleep(1)
+    #     elif role == 'Исполнитель':
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).clear()
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).send_keys(role)
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role_Executor).click()
+    #         time.sleep(1)
+    #     else:
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).clear()
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role).send_keys(role)
+    #         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Role_Root).click()
+    #         time.sleep(1)
 
     def enter_worker_group_id(self, groupid):
         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Group_Id).clear()
