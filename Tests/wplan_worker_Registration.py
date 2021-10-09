@@ -7,7 +7,9 @@ from russian_names import RussianNames
 import mimesis
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 import global_functions
 from Locators.Locators import WPlan_WorkerRegistrationPage
 
@@ -47,32 +49,25 @@ def register_new_worker(request):
     timexId = global_functions.random_number(6)
     workDay = datetime.today().strftime("%d.%m.%Y")
 
-    todays_date = datetime.today().strftime("%Y-%m-%d %H-%M-%S")
     wPlanWorkerRegistration = WPlanWorkerRegistration(driver)
     wPlanAddNewWorker = WPlanWorkersMenu(driver)
     wPlanAddNewWorker.press_add_new_worker_button()
+    wPlanWorkerRegistration.select_login_type()
+    wPlanWorkerRegistration.enter_login('justatest')
+    wPlanWorkerRegistration.enter_password('11111111')
+    wPlanWorkerRegistration.enter_timex_id(timexId)
+    wPlanWorkerRegistration.enter_date(workDay)
+    wPlanWorkerRegistration.enter_worker_name(RN[0][0])
+    wPlanWorkerRegistration.enter_worker_family(RN[0][1])
+    wPlanWorkerRegistration.enter_worker_midname(RN[0][2])
+    wPlanWorkerRegistration.enter_worker_office('BY1')
+    wPlanWorkerRegistration.enter_worker_role('Root')
+    wPlanWorkerRegistration.enter_worker_schedule('')
 
-    wPlanWorkerRegistration.enter_worker_reddy_id('6645311')
-    # ActionChains(wPlanWorkerRegistration.driver).move_to_element(wPlanWorkerRegistration.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Schedule)).click().send_keys("Нед Без Вых 8").perform()
-    ActionChains(wPlanWorkerRegistration.driver).move_to_element(wPlanWorkerRegistration.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Schedule)).click().perform()
-    # wPlanWorkerRegistration.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Schedule_1).click()
-    # sel = '//div[@class="rc-virtual-list"]//div[@class="rc-virtual-list-holder"]//div[@class="rc-virtual-list-holder-inner"]//*'
-    sel = '//div[@label="Нед Без вых 8 and @aria-selected="false"]'
-    wPlanWorkerRegistration.driver.find_element_by_xpath(sel).click()
+    # ActionChains(driver).move_to_element(driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Schedule)).click().perform()
+    # driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Schedule_1).click()
 
-
-    # wPlanWorkerRegistration.select_login_type()
-    # wPlanWorkerRegistration.enter_login('justatest')
-    # wPlanWorkerRegistration.enter_password('11111111')
-    # wPlanWorkerRegistration.enter_timex_id(timexId)
-    # # wPlanWorkerRegistration.enter_date('05.10.2021')
-    # wPlanWorkerRegistration.enter_worker_name(RN[0][0])
-    # wPlanWorkerRegistration.enter_worker_family(RN[0][1])
-    # wPlanWorkerRegistration.enter_worker_midname(RN[0][2])
-    # wPlanWorkerRegistration.enter_worker_office('BY1')
-    # wPlanWorkerRegistration.enter_worker_role('Root')
-    # wPlanWorkerRegistration.enter_worker_schedule('Нед Без Вых 8')
-    # wPlanWorkerRegistration.press_worker_submit_button()
+    wPlanWorkerRegistration.press_worker_submit_button()
     time.sleep(3)
 
 @pytest.mark.usefixtures('go_to_worker_page')

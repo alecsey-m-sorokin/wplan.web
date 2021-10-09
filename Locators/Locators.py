@@ -61,29 +61,36 @@ class WPlan_WorkerRegistrationPage(Locators):
     Worker_WPlan_Family = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="bad80054eddf427b6e2adbfc7f4f7b9a"]'
     Worker_WPlan_MidName = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="353ac266bcc21b2d026bb71bfeaefde4"]'
     Worker_WPlan_Reddy_Id = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="44744aae4f39b3cbf59e965b438e7d76"]'
+
+    """ OFFICE"""
     Worker_WPlan_Office = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//div[@class="ant-select-selector"]//*[@id="5e58afebf604780a9fc25c82b5ded909"]'
     Worker_WPlan_Office_BY1 = '//div[@label="BY1"]'
-    # Worker_WPlan_Office_BY1 = '/html/body/div[3]/div/div[2]/div/div[2]/div[2]/div/div/form/div[3]/div[7]/div/div[2]/div/div/div/div[3]/div/div/div/div[2]/div[1]/div/div/div[1]'
-    Worker_WPlan_Role_Root = '//div[@label="Root"]'
-    Worker_WPlan_Role_Manager = '//div[@label="Менеджер" and @aria-selected="true"]'
-    Worker_WPlan_Role_Executor = '//div[@label="Исполнитель" and @aria-selected="true"]'
-    Worker_WPlan_Role_Lead = '//div[@label="Руководитель" and @aria-selected="true"]'
-    Worker_WPlan_Role = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//div[@class="ant-select-selector"]//*[@id="21e6806b7db4cae32ee9e82794aed1f0"]'
+    Worker_WPlan_Office_BY2 = '//div[@label="BY2,BY4,BY6"]'
+    Worker_WPlan_Office_BY3 = '//div[@label="BY3"]'
+    # Worker_WPlan_Office_BY1 = './/*[normalize-space(text()) and normalize-space(.)="BY1"])[4]/following::div[2]'
+    # Worker_WPlan_Office_BY2 = './/*[normalize-space(text()) and normalize-space(.)="BY2,BY4,BY6"])[2]/following::div[2]'
+    # Worker_WPlan_Office_BY3 = '(.//*[normalize-space(text()) and normalize-space(.)="BY3"])[2]/following::div[2]'
+
+    """ WORKER ROLE"""
     # Worker_WPlan_Role = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//span[@class="ant-select-selection-item" and @title = "Root"]'
+    Worker_WPlan_Role = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//div[@class="ant-select-selector"]//*[@id="21e6806b7db4cae32ee9e82794aed1f0"]'
+    Worker_WPlan_Role_Root = '//div[@label="Root"]'
+    Worker_WPlan_Role_Manager = '//div[@label="Менеджер"]'
+    Worker_WPlan_Role_Lead = '//div[@label="Руководитель"]'
+    Worker_WPlan_Role_Executor = '//div[@label="Исполнитель"]'
+    # Worker_WPlan_Role_Root = '(.//*[normalize-space(text()) and normalize-space(.)="Root"])[3]/following::div[2]'
+    # Worker_WPlan_Role_Manager = '(.//*[normalize-space(text()) and normalize-space(.)="Менеджер"])[2]/following::div[2]'
+    # Worker_WPlan_Role_Executor = 'xpath=(.//*[normalize-space(text()) and normalize-space(.)="Исполнитель"])[19]/following::div[14]'
+    # Worker_WPlan_Role_Lead = '(.//*[normalize-space(text()) and normalize-space(.)="Руководитель"])[3]/following::div[2]'
+
     Worker_WPlan_Group_Id = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//div[@class="ant-select-selector"]//*[@id="782f16b1199d46a5961ddee06b782d60"]'
     Worker_WPlan_Schedule = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//div[@class="ant-select-selector"]//*[@id="bedcd65b962e3b97eb7e769cc31d39df"]'
-    Worker_WPlan_Schedule_1 = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="bedcd65b962e3b97eb7e769cc31d39df"]'
-    Worker_WPlan_Schedule_2 = '//span[@class="ant-select-selection-item" and @title ="Нед Без вых 8"]'
-    # Worker_WPlan_Schedule_1 = '//div[@label="Нед Без вых 8 and @aria-selected="false"]'
-    # '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="bedcd65b962e3b97eb7e769cc31d39df"]'
-    # Worker_Registration_Cancel_button = '//div[@class="ant-modal-footer"]//button[@type="button" and @class = "ant-btn" and contains(text(), "")]'
-    # Worker_Registration_Submit_button = '//div[@class="ant-modal-footer"]//button[@type="button" and @class = "ant-btn ant-btn-primary" and contains(text(), "")]'
-    Worker_Registration_Cancel_button = 'Отмена'
-    Worker_Registration_Submit_button = '/html/body/div[5]/div/div[2]/div/div[2]/div[3]/button[2]'
-    # Worker_Registration_Submit_button = '//button[@type="button" and @class="ant-btn ant-btn-primary"]'
-    # Worker_Registration_Submit_button = '//button[@type="button" and @class="ant-btn ant-btn-primary"]'
-
-# '//button[@type="button"]//*[contains(@span, "Добавить сотрудника")]'
+    Worker_WPlan_Schedule_1 = u'(.//*[normalize-space(text()) and normalize-space(.)="Нед Без вых 8"])[1]/following::div[2]'
+    # Worker_WPlan_Schedule_2 = '//div[@label="Нед Вых:Вс 8.5" and @aria-selected="false"]'
+    # Worker_WPlan_Schedule_3 = '//div[@label="Нед Вых:Вс 8.5"]'
+    # Worker_WPlan_Schedule_4 = '//div[@class="ant-select-dropdown ant-select-dropdown-placement-topLeft "]//div[@role="listbox" and @id="bedcd65b962e3b97eb7e769cc31d39df_list"]//div[@aria-label="Нед Без вых 8" and @id="bedcd65b962e3b97eb7e769cc31d39df_list_0"]'
+    Worker_Registration_Cancel_button = '//button[@type="button" and contains(span, "Отмена")]'
+    Worker_Registration_Submit_button = '//button[@type="button" and contains(span, "Добавить сотрудника")]'
 
 class REGISTRATIONPage(Locators):
     """ REGISTRATION """
@@ -114,3 +121,13 @@ class CONTACT_FORMPage(Locators):
     Project_contact_form_tutor = '//span[@class="style_checkbox__text__2eyhR" and contains(text(), "Подготовка к сдаче ОГЭ")]'
     Project_contact_form_text = '//div[@class=" style_textarea__3BZB3 "]//textarea[@class = "style_textarea__field__1MY9S"]'
     Project_contact_form_finish_button = '//button[@type="button" and contains(text(), "Готово")]'
+
+
+
+
+# "//div[contains(@class,'ajs-error') and contains(text(),'%s')]"
+# //div[@class="ant-select-dropdown ant-select-dropdown-placement-topLeft "]//div[@role="listbox" and @id="bedcd65b962e3b97eb7e769cc31d39df_list"]//div[@aria-label="Нед Без вых 8" and @id="bedcd65b962e3b97eb7e769cc31d39df_list_0"]
+# ActionChains(wPlanWorkerRegistration.driver).move_to_element(wPlanWorkerRegistration.driver.find_element_by_xpath('//*[@id="bedcd65b962e3b97eb7e769cc31d39df"]')).click().send_keys('Нед Вых:Вс 8.5').perform()
+# wPlanWorkerRegistration.driver.find_element_by_id('bedcd65b962e3b97eb7e769cc31d39df').click()
+# wPlanWorkerRegistration.driver.find_element_by_xpath('(.//*[normalize-space(text()) and normalize-space(.)="Нед Без вых 8"])[1]/following::div[2]').click()
+

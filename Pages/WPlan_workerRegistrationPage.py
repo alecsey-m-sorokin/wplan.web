@@ -35,9 +35,17 @@ class WPlanWorkerRegistration:
         time.sleep(1)
 
     def enter_date(self, date):
+        """
+            # driver.find_element_by_id('dff618ee3ff92d1fa9984129d7e2449b').send_keys(Keys.SHIFT + Keys.HOME + Keys.DELETE)
+            # ActionChains(driver).move_to_element(driver.find_element_by_id('dff618ee3ff92d1fa9984129d7e2449b')).click().key_down(Keys.CONTROL).send_keys("a").send_keys(Keys.DELETE).perform()
+        """
         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Select_Date).click()
-        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Select_Date).clear()
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Select_Date).send_keys(Keys.END)
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Select_Date).send_keys('\b\b\b\b\b\b\b\b\b\b')
         self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Select_Date).send_keys(date)
+        # self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Select_Date).send_keys(Keys.ENTER)
+        self.driver.find_element_by_css_selector(".ant-form").submit()
+
         time.sleep(1)
 
     def enter_worker_name(self, name):
@@ -78,19 +86,13 @@ class WPlanWorkerRegistration:
         time.sleep(1)
 
     def enter_worker_schedule(self, schedule):
-        ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Schedule)).perform()
-        # self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Schedule).clear()
-        # self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Schedule).send_keys(schedule)
-        # # self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Schedule_2).click()
-        # self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Schedule).send_keys(Keys.ENTER)
+        ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Schedule)).click().perform()
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_WPlan_Schedule_1).click()
         time.sleep(1)
 
     def press_worker_submit_button(self):
-        submit = 'body > div:nth-child(11) > div > div.ant-modal-wrap.ant-modal-centered > div > div.ant-modal-content > div.ant-modal-footer > button.ant-btn.ant-btn-primary'
-        ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_Registration_Submit_button)).perform()
-        # self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_Registration_Submit_button).click()
-        # self.driver.find_element_by_css_selector(submit).click()
-
+        # ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_Registration_Submit_button)).click().perform()
+        self.driver.find_element_by_xpath(WPlan_WorkerRegistrationPage.Worker_Registration_Submit_button).click()
         time.sleep(1)
 
 
