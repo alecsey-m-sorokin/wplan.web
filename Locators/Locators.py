@@ -105,8 +105,21 @@ class WPlan_WorkerPermissionsPage(Locators):
     Add_Groups_to_Worker_arrow = '//*[@id="rc-tabs-0-panel-offices"]/div/div/div/div/div/div[2]/button[1]/span/svg'
     Remove_Groups_from_Worker_checkbox = '//*[@id="rc-tabs-0-panel-offices"]/div/div/div/div/div/div[3]/div[2]/ul/li/label/span/input'
     Remove_Groups_from_Worker_arrow = '//*[@id="rc-tabs-0-panel-offices"]/div/div/div/div/div/div[2]/button[2]/span/svg'
-
     Worker_Permissions_Submit_button = '//button[@type="button" and contains(span, "Сохранить изменения")]'
+
+class WPlan_WorkerEditPasswordPage(Locators):
+    """ EDIT PASSWORD """
+    Edit_Password_button = '//*[@id="root"]/div/section/section/main/div[2]/div/div/div/div/div/div/div/div/div/table/tbody/tr[8]/td[5]/button'
+    Find_All_Workers = '//div[@class="ant-col ant-col-24"]//div[@class="ant-table-wrapper"]//tbody[@class="ant-table-tbody"]//tr'
+    New_Password = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="737aba61daadb048f0b3f6f81be8b572"]'
+    # '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[contains(@name, "password")]'
+    Confirm_Password = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//*[@id="24f7a9c2f895f75b518d92502b756525"]'
+    Cancel_Edit_Password_button = '//div[@class="ant-modal-footer"]//button[@type="button" and @ant-click-animating-without-extra-node="true" and contains(span, "Отмена")]'
+    Submit_Edit_Password_button = '.ant-modal-wrap:nth-child(2) > .ant-modal > .ant-modal-content > .ant-modal-footer > .ant-btn-primary > span'
+    # '//div[@class="ant-modal-footer"]//*[contains(span, "Отмена")]'
+    # '//div[@class="ant-modal-footer"]//button[@type="button" and @class="ant-btn ant-btn-primary" and contains(span, "Подтвердить")]'
+    # u'(.//*[normalize-space(text()) and normalize-space(.)="Нед Без вых 8"])[1]/following::div[2]'
+    # '.ant-modal-wrap:nth-child(2) > .ant-modal > .ant-modal-content > .ant-modal-footer > .ant-btn-primary > span'
 
 class REGISTRATIONPage(Locators):
     """ REGISTRATION """
