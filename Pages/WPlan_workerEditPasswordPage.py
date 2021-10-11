@@ -34,7 +34,7 @@ class WPlanWorkerEditPassword:
         time.sleep(1)
 
     def press_edit_password_submit_button(self):
-        self.driver.find_element_by_css_selector('.ant-modal-wrap:nth-child(2) > .ant-modal > .ant-modal-content > .ant-modal-footer > .ant-btn-primary > span').click()
+        self.driver.find_element_by_css_selector(WPlan_WorkerEditPasswordPage.Submit_Edit_Password_button).click()
         time.sleep(1)
 
     # def press_edit_password_submit_button(self):
