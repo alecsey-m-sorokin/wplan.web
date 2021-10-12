@@ -18,5 +18,3 @@ class WPlanWorkersMenu:
     def press_add_new_worker_button(self):
         self.driver.find_element_by_xpath(WPlan_WorkerPage.WPlan_Add_Worker).click()
         time.sleep(1)
-
-
