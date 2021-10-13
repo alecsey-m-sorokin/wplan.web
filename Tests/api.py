@@ -14,17 +14,17 @@ print(f'authToken = {authToken}')
 #
 
 postWorker, workerId = API_TestWPlan.PostWorker(authToken, name='Имммя', surName='Фамммилия', middleName='Отттчествво',
-                                                wtEmploeeId=100501, startWork='2021-09-21T00:00:00', chatId='', officeId=1,
+                                                wtEmploeeId=100502, startWork='2021-09-21T00:00:00', chatId='', officeId=1,
                                                 scheduleId=60, scheduleName=None, roleId=3, groupIds=[10],
-                                                login='nnname666', password='11111111', IsOnlyADProfileType=False,
+                                                login='nnname777', password='zaqWSX123#$', IsOnlyADProfileType=False,
                                                 activeDirectoryLogin='', canEditTime=False, canEditSchedule=False)
 #
 # workerId = '4966'
 
 getWorker, workerId = API_TestWPlan.GetWorker(authToken, workerId)
 
-putWorker = API_TestWPlan.PutWorker(authToken, workerId, login='nnname777', password=None, activeDirectoryLogin='',
-                                    isOnlyADProfileType=False, wtEmploeeId=100501, name='Имммяя2', surName='Фамммилияя2',
+putWorker = API_TestWPlan.PutWorker(authToken, workerId, login='nnname888', password=None, activeDirectoryLogin='',
+                                    isOnlyADProfileType=False, wtEmploeeId=100502, name='Имммяя2', surName='Фамммилияя2',
                                     middleName='Отттчестввоо2', startWork='2021-09-21T00:00:00', chatid='', officeId=1,
                                     scheduleId=60, scheduleName=None, roleId=3, groupIds=[10], canEditTime=False,
                                     canEditSchedule=False, canEditDayOffForHimself=False)

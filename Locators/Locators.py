@@ -86,16 +86,19 @@ class WPlan_WorkerRegistrationPage(Locators):
     Worker_WPlan_Group_Id = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//div[@class="ant-select-selector"]//*[@id="782f16b1199d46a5961ddee06b782d60"]'
     Worker_WPlan_Schedule = '//div[@class="ant-col ant-col-24 ant-form-item-control"]//div[@class="ant-select-selector"]//*[@id="bedcd65b962e3b97eb7e769cc31d39df"]'
     Worker_WPlan_Schedule_1 = u'(.//*[normalize-space(text()) and normalize-space(.)="Нед Без вых 8"])[1]/following::div[2]'
+
     # Worker_WPlan_Schedule_2 = '//div[@label="Нед Вых:Вс 8.5" and @aria-selected="false"]'
     # Worker_WPlan_Schedule_3 = '//div[@label="Нед Вых:Вс 8.5"]'
     # Worker_WPlan_Schedule_4 = '//div[@class="ant-select-dropdown ant-select-dropdown-placement-topLeft "]//div[@role="listbox" and @id="bedcd65b962e3b97eb7e769cc31d39df_list"]//div[@aria-label="Нед Без вых 8" and @id="bedcd65b962e3b97eb7e769cc31d39df_list_0"]'
     Worker_Registration_Cancel_button = '//button[@type="button" and contains(span, "Отмена")]'
     Worker_Registration_Submit_button = '//button[@type="button" and contains(span, "Добавить сотрудника")]'
+    # '//button[@type="button" and @class="ant-btn ant-btn-primary"]//span[@class="ant-btn-loading-icon"]'
+    # '(.//*[normalize-space(text()) and normalize-space(.)='Отмена'])[2]/following::span[1]'
 
 class WPlan_WorkerPermissionsPage(Locators):
     """ OFFICE """
-    Add_Worker_All_Offices_Groups0 = '//*[@id="753cd56cf78d66147b1cf76c30226c4f"]/div'
     Add_Worker_All_Offices_Groups = '//*[@id="753cd56cf78d66147b1cf76c30226c4f"]'
+    Add_Worker_All_Offices_Groups0 = '//*[@id="753cd56cf78d66147b1cf76c30226c4f"]'
     BY1 = '//*[@id="rc-tabs-0-panel-offices"]/div/div/div/div/div/div[1]/div[2]/ul/li[1]/label/span/input'
     BY2 = '//*[@id="rc-tabs-0-panel-offices"]/div/div/div/div/div/div[1]/div[2]/ul/li[2]/label/span/input'
     BY3 = '//*[@id="rc-tabs-0-panel-offices"]/div/div/div/div/div/div[1]/div[2]/ul/li[3]/label/span/input'

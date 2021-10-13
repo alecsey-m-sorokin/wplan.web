@@ -1,6 +1,8 @@
 from datetime import datetime
 import time
 import unittest
+
+from parameterized import parameterized
 import pytest
 from selenium import webdriver
 from russian_names import RussianNames
@@ -41,17 +43,22 @@ def go_to_worker_page(go_to_wplan_page, request):
     wPlanWorker = WPlanMainMenu(driver)
     wPlanWorker.select_main_menu_workers()
 
+    wPlanEditWorkerPassword = WPlanWorkerEditPassword(driver)
+    wPlanEditWorkerPassword.press_edit_password_button()
+
+
 @pytest.fixture(scope='function')
+# @parameterized.expand(['gsyw2#Edd', 'gs~w2#Edd'])
 def edit_worker_lead_Password(request):
     driver = request.cls.driver
     RN = RussianNames(count=1, output_type='list', transliterate=False).get_batch()
-    login = global_functions.random_string(8)
-    password = global_functions.user_password(1, 8)
-    timexId = global_functions.random_number(6)
+    login = global_functions.random_string(10)
+    password = global_functions.user_password(1, 20)
+    timexId = global_functions.random_number(7)
     workDate = datetime.today().strftime("%d.%m.%Y")
 
     wPlanEditWorkerPassword = WPlanWorkerEditPassword(driver)
-    wPlanEditWorkerPassword.press_edit_password_button()
+    # wPlanEditWorkerPassword.press_edit_password_button()
     wPlanEditWorkerPassword.enter_new_password(password=password)
     wPlanEditWorkerPassword.confirm_new_password(password=password)
     wPlanEditWorkerPassword.press_edit_password_submit_button()
@@ -79,3 +86,21 @@ class TestWPlanWorkerEditPassword(unittest.TestCase):
         driver = self.driver
         # self.driver.set_window_size(1376, 895)
         time.sleep(2)
+
+    @parameterized.expand([
+        'gsyw2#Edd',
+        'gs~w2#Edd'
+    ])
+    def test_02_edit_worker_password(self, password):
+        driver = self.driver
+
+        # password = global_functions.user_password(1, 20)
+        wPlanEditWorkerPassword = WPlanWorkerEditPassword(driver)
+        # wPlanEditWorkerPassword.press_edit_password_button()
+        wPlanEditWorkerPassword.enter_new_password(password=password)
+        wPlanEditWorkerPassword.confirm_new_password(password=password)
+        wPlanEditWorkerPassword.press_edit_password_submit_button()
+        time.sleep(3)
+
+        # self.driver.set_window_size(1376, 895)
+        # time.sleep(2)

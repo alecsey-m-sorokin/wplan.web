@@ -45,9 +45,9 @@ def go_to_worker_page(go_to_wplan_page, request):
 def register_new_worker_root(request):
     driver = request.cls.driver
     RN = RussianNames(count=1, output_type='list', transliterate=False).get_batch()
-    login = global_functions.random_string(8)
-    password = global_functions.user_password(1, 8)
-    timexId = global_functions.random_number(6)
+    login = global_functions.random_string(10)
+    password = global_functions.user_password(1, 20)
+    timexId = global_functions.random_number(7)
     workDate = datetime.today().strftime("%d.%m.%Y")
 
     wPlanWorkerRegistration = WPlanWorkerRegistration(driver)
@@ -55,7 +55,7 @@ def register_new_worker_root(request):
     wPlanAddNewWorker.press_add_new_worker_button()
     wPlanWorkerRegistration.select_login_type()
     wPlanWorkerRegistration.enter_login(login=login)
-    wPlanWorkerRegistration.enter_password(password='11111111')
+    wPlanWorkerRegistration.enter_password(password=password)
     wPlanWorkerRegistration.enter_timex_id(timexId=timexId)
     wPlanWorkerRegistration.enter_date(workDate=workDate)
     wPlanWorkerRegistration.enter_worker_name(name=RN[0][0])
@@ -64,6 +64,7 @@ def register_new_worker_root(request):
     wPlanWorkerRegistration.enter_worker_office(office='BY1')
     wPlanWorkerRegistration.enter_worker_role_root(role='Root')
     wPlanWorkerRegistration.enter_worker_schedule(schedule='')
+    # driver.find_element_by_xpath(u'(.//*[normalize-space(text()) and normalize-space(.)="Отмена"])[2]/following::span[1]').click()
     wPlanWorkerRegistration.press_worker_submit_button()
     time.sleep(3)
 
@@ -71,9 +72,9 @@ def register_new_worker_root(request):
 def register_new_worker_manager(request):
     driver = request.cls.driver
     RN = RussianNames(count=1, output_type='list', transliterate=False).get_batch()
-    login = global_functions.random_string(8)
-    password = global_functions.user_password(1, 8)
-    timexId = global_functions.random_number(6)
+    login = global_functions.random_string(10)
+    password = global_functions.user_password(1, 20)
+    timexId = global_functions.random_number(7)
     workDate = datetime.today().strftime("%d.%m.%Y")
 
     wPlanWorkerRegistration = WPlanWorkerRegistration(driver)
@@ -81,7 +82,7 @@ def register_new_worker_manager(request):
     wPlanAddNewWorker.press_add_new_worker_button()
     wPlanWorkerRegistration.select_login_type()
     wPlanWorkerRegistration.enter_login(login=login)
-    wPlanWorkerRegistration.enter_password(password='11111111')
+    wPlanWorkerRegistration.enter_password(password=password)
     wPlanWorkerRegistration.enter_timex_id(timexId=timexId)
     wPlanWorkerRegistration.enter_date(workDate=workDate)
     wPlanWorkerRegistration.enter_worker_name(name=RN[0][0])
@@ -90,10 +91,11 @@ def register_new_worker_manager(request):
     wPlanWorkerRegistration.enter_worker_office(office='BY1')
     wPlanWorkerRegistration.enter_worker_role_manager(role='Менеджер')
     wPlanWorkerRegistration.enter_worker_schedule(schedule='')
+    # driver.find_element_by_xpath(u'(.//*[normalize-space(text()) and normalize-space(.)="Отмена"])[2]/following::span[1]').click()
     wPlanWorkerRegistration.press_worker_submit_button()
     time.sleep(3)
-
     wPlanWorkerPermissions = WPlanWorkerPermissions(driver)
+    # driver.find_element_by_xpath('//*[@id="753cd56cf78d66147b1cf76c30226c4f"]').click()
     wPlanWorkerPermissions.select_worker_permissions_all_offices_groups()
     time.sleep(2)
     wPlanWorkerPermissions.press_worker_permissions_submit_button()
@@ -103,9 +105,9 @@ def register_new_worker_manager(request):
 def register_new_worker_lead(request):
     driver = request.cls.driver
     RN = RussianNames(count=1, output_type='list', transliterate=False).get_batch()
-    login = global_functions.random_string(8)
-    password = global_functions.user_password(1, 8)
-    timexId = global_functions.random_number(6)
+    login = global_functions.random_string(10)
+    password = global_functions.user_password(1, 20)
+    timexId = global_functions.random_number(7)
     workDate = datetime.today().strftime("%d.%m.%Y")
 
     wPlanWorkerRegistration = WPlanWorkerRegistration(driver)
@@ -113,7 +115,7 @@ def register_new_worker_lead(request):
     wPlanAddNewWorker.press_add_new_worker_button()
     wPlanWorkerRegistration.select_login_type()
     wPlanWorkerRegistration.enter_login(login=login)
-    wPlanWorkerRegistration.enter_password(password='11111111')
+    wPlanWorkerRegistration.enter_password(password=password)
     wPlanWorkerRegistration.enter_timex_id(timexId=timexId)
     wPlanWorkerRegistration.enter_date(workDate=workDate)
     wPlanWorkerRegistration.enter_worker_name(name=RN[0][0])
@@ -129,9 +131,9 @@ def register_new_worker_lead(request):
 def register_new_worker_executor(request):
     driver = request.cls.driver
     RN = RussianNames(count=1, output_type='list', transliterate=False).get_batch()
-    login = global_functions.random_string(8)
-    password = global_functions.user_password(1, 8)
-    timexId = global_functions.random_number(6)
+    login = global_functions.random_string(10)
+    password = global_functions.user_password(1, 20)
+    timexId = global_functions.random_number(7)
     workDate = datetime.today().strftime("%d.%m.%Y")
 
     wPlanWorkerRegistration = WPlanWorkerRegistration(driver)
@@ -139,7 +141,7 @@ def register_new_worker_executor(request):
     wPlanAddNewWorker.press_add_new_worker_button()
     wPlanWorkerRegistration.select_login_type()
     wPlanWorkerRegistration.enter_login(login=login)
-    wPlanWorkerRegistration.enter_password(password='11111111')
+    wPlanWorkerRegistration.enter_password(password=password)
     wPlanWorkerRegistration.enter_timex_id(timexId=timexId)
     wPlanWorkerRegistration.enter_date(workDate=workDate)
     wPlanWorkerRegistration.enter_worker_name(name=RN[0][0])
@@ -148,6 +150,7 @@ def register_new_worker_executor(request):
     wPlanWorkerRegistration.enter_worker_office(office='BY1')
     wPlanWorkerRegistration.enter_worker_role_executor(role='Исполнитель')
     wPlanWorkerRegistration.enter_worker_schedule(schedule='')
+    # driver.find_element_by_xpath('//button[@type="button" and contains(span, "Добавить сотрудника")]').click()
     wPlanWorkerRegistration.press_worker_submit_button()
     time.sleep(3)
 
@@ -192,6 +195,35 @@ class TestWPlanWorkerRegistration(unittest.TestCase):
         driver = self.driver
         # self.driver.set_window_size(1376, 895)
         time.sleep(2)
+
+    # @pytest.mark.usefixtures('register_new_worker_executor')
+    def test_05_register_new_worker(self):
+        driver = self.driver
+        RN = RussianNames(count=1, output_type='list', transliterate=False).get_batch()
+        login = global_functions.random_string(10)
+        password = global_functions.user_password(1, 20)
+        timexId = global_functions.random_number(7)
+        workDate = datetime.today().strftime("%d.%m.%Y")
+
+        wPlanWorkerRegistration = WPlanWorkerRegistration(driver)
+        wPlanAddNewWorker = WPlanWorkersMenu(driver)
+        wPlanAddNewWorker.press_add_new_worker_button()
+        wPlanWorkerRegistration.select_login_type()
+        wPlanWorkerRegistration.enter_login(login=login)
+        wPlanWorkerRegistration.enter_password(password=password)
+        wPlanWorkerRegistration.enter_timex_id(timexId=timexId)
+        wPlanWorkerRegistration.enter_date(workDate=workDate)
+        wPlanWorkerRegistration.enter_worker_name(name=RN[0][0])
+        wPlanWorkerRegistration.enter_worker_family(family=RN[0][1])
+        wPlanWorkerRegistration.enter_worker_midname(midname=RN[0][2])
+        wPlanWorkerRegistration.enter_worker_office(office='BY1')
+        wPlanWorkerRegistration.enter_worker_role_root(role='Root')
+        wPlanWorkerRegistration.enter_worker_schedule(schedule='')
+
+        driver.find_element_by_xpath(u'(.//*[normalize-space(text()) and normalize-space(.)="Отмена"])[2]/following::span[1]').click()
+
+        # wPlanWorkerRegistration.press_worker_submit_button()
+        time.sleep(3)
 
 
 
