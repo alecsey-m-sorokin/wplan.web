@@ -13,8 +13,18 @@ def go_to_wplan_page(driver, request):
     driver = request.cls.driver
     driver.get("https://wplan.zhdun.space/")
 
+@pytest.fixture(scope='class')
+def go_to_wplan_login_page(go_to_wplan_page, request):
+    driver = request.cls.driver
+    wPlanLogin = WPlanLogin(driver)
+    wPlanLogin.enter_login(StandSettings.root_reddy_user)
+    wPlanLogin.enter_password(StandSettings.root_reddy_user_password)
+    wPlanLogin.press_ad_check_button()
+    wPlanLogin.press_enter_button()
+    wPlanLogin.press_reddy_id_cancel_button()
 
-@pytest.mark.usefixtures('go_to_wplan_page')
+
+@pytest.mark.usefixtures('go_to_wplan_login_page')
 class TestWPlanLoginRootUser(unittest.TestCase):
 
     @classmethod
@@ -35,11 +45,7 @@ class TestWPlanLoginRootUser(unittest.TestCase):
         driver = self.driver
         wPlanLogin = WPlanLogin(driver)
         # self.driver.set_window_size(1376, 895)
-        wPlanLogin.enter_login(StandSettings.root_reddy_user)
-        wPlanLogin.enter_password(StandSettings.root_reddy_user_password)
-        wPlanLogin.press_ad_check_button()
-        wPlanLogin.press_enter_button()
-        wPlanLogin.press_reddy_id_cancel_button()
+
         wPlanLogin.press_wplan_top_exit_button()
         wPlanLogin.press_wplan_logout_button()
         time.sleep(1)

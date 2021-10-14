@@ -11,7 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import global_functions
-from Locators.Locators import WPlan_WorkerRegistrationPage
+from Locators.Locators import WPlan_WorkerRegistrationPage, WPlanLoginPage
 from conftest import FIREFOX_PATH_64
 
 from Pages.WPlan_loginPage import WPlanLogin
@@ -28,15 +28,21 @@ def go_to_wplan_page(driver, request):
     driver.get("https://wplan.zhdun.space/")
 
 @pytest.fixture(scope='class')
-def go_to_worker_page(go_to_wplan_page, request):
+def go_to_wplan_login_page(go_to_wplan_page, request):
     driver = request.cls.driver
     wPlanLogin = WPlanLogin(driver)
     wPlanLogin.enter_login(StandSettings.root_reddy_user)
     wPlanLogin.enter_password(StandSettings.root_reddy_user_password)
     wPlanLogin.press_ad_check_button()
     wPlanLogin.press_enter_button()
-    wPlanLogin.press_reddy_id_cancel_button()
+    if wPlanLogin.check_exists_by_xpath(xpath=WPlanLoginPage.WPlan_Reddy_ID_cancel_button):
+        wPlanLogin.press_reddy_id_cancel_button()
+    else:
+        pass
 
+@pytest.fixture(scope='class')
+def go_to_worker_page(go_to_wplan_login_page, request):
+    driver = request.cls.driver
     wPlanWorker = WPlanMainMenu(driver)
     wPlanWorker.select_main_menu_workers()
 

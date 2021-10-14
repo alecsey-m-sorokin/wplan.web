@@ -44,3 +44,10 @@ class WPlanLogin:
     def press_wplan_logout_button(self):
         self.driver.find_element_by_xpath(WPlan_LogoutPage.WPlan_logout).click()
         time.sleep(2)
+
+    def check_exists_by_xpath(self, xpath):
+        try:
+            self.driver.find_element_by_xpath(xpath)
+        except NoSuchElementException:
+            return False
+        return True
